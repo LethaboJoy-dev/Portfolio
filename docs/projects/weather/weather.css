@@ -1,0 +1,95 @@
+﻿/* Weather App Styles */
+#app-root {
+  font-family: 'Inter', sans-serif;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+#app-root .container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 600px;
+}
+
+#app-root .title {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+#app-root .search-box {
+  margin: 25px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#app-root .search-box input {
+  padding: 14px;
+  width: 260px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  color: #333;
+}
+
+#app-root .search-box button {
+  background: #E0E1DD;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+  color: #333;
+}
+
+#app-root .search-box button:hover {
+  transform: scale(1.1);
+}
+
+#app-root .weather-card {
+  background: rgba(255, 255, 255, 0.15);
+  margin: 30px auto;
+  padding: 30px;
+  width: 85%;
+  max-width: 400px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  animation: fadeIn 0.7s ease forwards;
+}
+
+#app-root .weather-main img {
+  width: 110px;
+}
+
+#app-root .weather-main h3 {
+  font-size: 38px;
+  margin: 10px 0;
+}
+
+#app-root .details p {
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+#app-root .error {
+  color: #ffdddd;
+  font-size: 16px;
+  font-weight: 600;
+  min-height: 20px;
+}
+
+#app-root .hidden {
+  display: none;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
