@@ -1,0 +1,569 @@
+/* COLOR PALETTE */
+:root {
+  --navy: #0D1B2A;
+  --dark-blue: #1B263B;
+  --steel: #415A77;
+  --soft-blue: #778DA9;
+  --offwhite: #E0E1DD;
+}
+
+/* ------- GENERAL ------- */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--offwhite);
+  color: var(--navy);
+}
+
+/* ------- HERO SECTION ------- */
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+  
+  /* Darker background overlay for improved contrast */
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+              url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1350&q=80');
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
+  color: white;
+}
+
+
+.vertical-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Hero layout with avatar + content */
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+.hero-avatar {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+  padding: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.avatar-svg {
+  width: 88%;
+  height: auto;
+  display: block;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.name-logo {
+  font-size: 56px;
+  text-align: left;
+}
+
+/* Stack hero on small screens and center avatar */
+@media (max-width: 760px) {
+  .hero-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .name-logo {
+    font-size: 44px;
+  }
+
+  .hero-avatar {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* TOP DETAILS — improved contrast */
+.top-details {
+  font-size: 16px;
+  color: rgba(255,255,255,0.95);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 8px 14px;
+  background: rgba(0,0,0,0.28);
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  align-items: center;
+}
+
+.top-details span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* icons */
+.top-details i {
+  color: rgba(255,255,255,0.95);
+  font-size: 18px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* links */
+.top-details a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+}
+
+/* NAME LOGO */
+.name-logo {
+  font-size: 75px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  opacity: 0.95;
+  max-width: 600px;
+}
+
+/* ------- ABOUT + SKILLS ------- */
+.card {
+  background: white;
+  padding: 40px;
+  margin: 40px auto;
+  width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Old list fallback (if you kept <ul>) */
+.skills ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+/* ---------- SKILLS: colored icons + boxed layout + level label ---------- */
+
+/* Base icon sizing and transitions (covers both list and boxed variants) */
+.skills i,
+.skill i {
+  font-size: 20px;
+  width: 28px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 10px;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+/* Colored icons (fun palette) */
+.skills .fa-html5       { color: #E34F26; } /* orange */
+.skills .fa-css3-alt    { color: #1572B6; } /* blue */
+.skills .fa-js          { color: #F7DF1E; } /* yellow */
+.skills .fa-react       { color: #61DAFB; } /* cyan */
+.skills .fa-java        { color: #5382A1; } /* muted blue */
+.skills .fa-php         { color: #777BB4; } /* purple */
+.skills .fa-database    { color: #00758F; } /* teal */
+.skills .fa-pencil-ruler{ color: #9B59B6; } /* purple-ish for design */
+
+/* Make the skills area a responsive grid of boxes (reuses .box style) */
+.skills-grid,
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* Per-skill box styling (reuses .box visual language) */
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 120px;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+/* Larger icon when inside skill box */
+.skill i {
+  font-size: 42px;
+  margin-bottom: 6px;
+}
+
+/* Skill title */
+.skill h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Level label (e.g., "Intermediate") */
+.skill .level {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark-blue);
+  background: rgba(13,27,42,0.06);
+  padding: 6px 10px;
+  border-radius: 999px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.02);
+}
+
+/* Hover emphasis */
+.skill:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Subtle icon hover lift for list items too */
+.skills li:hover i,
+.skill:hover i {
+  transform: translateY(-3px) scale(1.03);
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.12));
+}
+
+/* ------- BOXES ------- */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.box {
+  background: white;
+  padding: 25px;
+  width: 260px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.skills li {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.skills i {
+  color: var(--steel);
+  margin-right: 8px;
+}
+
+/* ------- FOOTER ------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--soft-blue);
+  color: white;
+}
+
+/* ------- RESPONSIVE ------- */
+@media (max-width: 640px) {
+  .skill {
+    width: calc(50% - 18px);
+    min-height: 110px;
+  }
+  .skills-grid,
+  .skills {
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .name-logo {
+    font-size: 48px;
+  }
+
+  .top-details {
+    font-size: 14px;
+    gap: 12px;
+    padding: 6px 10px;
+  }
+}
+/* ------- EDUCATION SECTION ------- */
+.education {
+  padding: 20px;
+}
+
+.education h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.education h2 i {
+  color: var(--steel);
+  font-size: 32px;
+}
+
+.education-item {
+  text-align: center;
+}
+
+.education-item h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.education-item .institution {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--steel);
+}
+
+.education-item .year {
+  margin: 0;
+  font-size: 14px;
+  color: var(--soft-blue);
+  font-style: italic;
+}
+/* ------- CTA SECTION: Hire Me & Download CV ------- */
+.cta-section {
+  background: linear-gradient(135deg, var(--dark-blue), var(--steel));
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+}
+
+.cta-content h2 {
+  font-size: 42px;
+  font-weight: 900;
+  margin: 0 0 16px;
+  letter-spacing: 1px;
+}
+
+.cta-content p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin: 0 0 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Button container */
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Base button style */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+/* Primary button: Hire Me (bright) */
+.cta-primary {
+  background: white;
+  color: var(--dark-blue);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  background: #f5f5f5;
+}
+
+/* Secondary button: Download CV (outline) */
+.cta-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cta-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .cta-section {
+    padding: 50px 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 28px;
+  }
+
+  .cta-content p {
+    font-size: 16px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 30px;
+  }
+}
+/* ------- PROJECTS SECTION ------- */
+.projects {
+  padding: 20px;
+}
+
+.projects h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.projects h2 i {
+  color: var(--steel);
+  font-size: 32px;
+}
+
+/* Project cards */
+.project-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 30px;
+  width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-box h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.project-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--steel);
+  flex-grow: 1;
+}
+
+/* Tech tags */
+.project-tech {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.tech-tag {
+  background: var(--offwhite);
+  color: var(--dark-blue);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Project links */
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--navy);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.project-link:hover {
+  background: var(--dark-blue);
+  transform: translateX(2px);
+}
+
+/* Hover effect for project card */
+.project-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .project-box {
+    width: calc(100% - 60px);
+  }
+
+  .projects h2 {
+    font-size: 24px;
+  }
+}

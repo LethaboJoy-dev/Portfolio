@@ -1,0 +1,5 @@
+# Exclude CV from GitHub
+Shadi_Joy_Betha_CV.pdf
+
+# Optional: exclude config files
+.hintrc
